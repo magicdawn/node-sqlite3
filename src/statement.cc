@@ -208,7 +208,7 @@ template <class T> std::unique_ptr<Values::Field>
 #if NAPI_VERSION >= 6
     else if (source.IsBigInt()) {
         bool lossless;
-        auto ret = new Values::Integer(pos, source.As<Napi::BigInt>().Int64Value(&lossless));
+        auto ret = std::make_unique<Values::Integer>(pos, source.As<Napi::BigInt>().Int64Value(&lossless));
 
         if (!lossless) {
             Napi::RangeError::New(
