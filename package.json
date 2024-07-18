@@ -66,7 +66,7 @@
     "node-gyp": "8.x"
   },
   "scripts": {
-    "install": "prebuild-install -r napi || node-gyp rebuild",
+    "install": "node-gyp rebuild",
     "prebuild": "prebuild --runtime napi --all --verbose",
     "rebuild": "node-gyp rebuild",
     "upload": "prebuild --verbose --prerelease",
